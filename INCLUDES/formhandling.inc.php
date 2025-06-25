@@ -12,6 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $age =  $_POST['age'];
 
+    // sanitizing user input before sending in value attribute
+    $sanitizedName = htmlspecialchars($name);
+    $sanitizedEmail = htmlspecialchars($email);
+    $sanitizedAge = htmlspecialchars($age);
+
     // validation for name input
     if (empty($name)) {
         $msg['name'] = "<p class='bg-red-300'>Please Enter a Name!</p>";
